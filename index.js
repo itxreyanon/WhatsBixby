@@ -1,19 +1,46 @@
 /* Copyright (C) 2025 Codex.
 Licensed under the MIT License;
 you may not use this file except in compliance with the License.
-Codex - Ziyan
+Codex - AstraWa Main Entry Point
 */
 
-const WhatsApp = require("./lib/client")
+const AstraWa = require("./core/AstraWa");
+const chalk = require("chalk");
 
-const start = async () => {
- try {
-    const bot = new WhatsApp('connect')
-    await bot.init();
-    await bot.connect();
-    await bot.web();
-  } catch (error) {
-    console.error(error)
-  }
+// ASCII Art Banner
+console.log(chalk.cyan(`
+╔═══════════════════════════════════════╗
+║                                       ║
+║     🌟 AstraWa Bot Starting... 🌟     ║
+║                                       ║
+║   Advanced WhatsApp Bot Framework     ║
+║   Dynamic Modular Architecture        ║
+║                                       ║
+╚═══════════════════════════════════════╝
+`));
+
+async function startAstraWa() {
+    try {
+        const bot = new AstraWa();
+        
+        // Initialize bot
+        await bot.init();
+        
+        // Connect to WhatsApp
+        await bot.connect();
+        
+        // Start web interface
+        await bot.startWeb();
+        
+        // Handle graceful shutdown
+        process.on('SIGINT', () => bot.shutdown());
+        process.on('SIGTERM', () => bot.shutdown());
+        
+    } catch (error) {
+        console.log(chalk.red('❌ Failed to start AstraWa:'), error);
+        process.exit(1);
+    }
 }
-start()
+
+// Start the bot
+startAstraWa();

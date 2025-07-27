@@ -1,7 +1,7 @@
 {
-  "name": "WhatsBixby",
+  "name": "AstraWa",
   "version": "4.1.5",
-  "description": "WhatsApp bot made with nodejs and baileys",
+  "description": "AstraWa - Advanced WhatsApp Bot with Dynamic Modular Architecture",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -13,7 +13,7 @@
 "engineStrict": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/c-o-d-e-xx/WhatsBixby"
+    "url": "git+https://github.com/c-o-d-e-xx/AstraWa"
   },
   "dependencies": {
     "@c-o-d-e-xx/baileys-revamped": "github:c-o-d-e-xx/baileys-revamped",
